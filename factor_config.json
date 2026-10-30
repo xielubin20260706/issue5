@@ -1,0 +1,36 @@
+{
+  "start": "2025-01-02",
+  "end": "2026-09-30",
+  "signal_anchor": "2024-12-31",
+  "exit_signal": "2026-09-29",
+  "rebalance_sessions": 5,
+  "forward_sessions": 5,
+  "groups": 5,
+  "expected_direction": 1,
+  "rolling_window_sessions": 60,
+  "factor": "return_5d",
+  "factor_file": null,
+  "benchmark_nav": null,
+  "infer_st_when_missing": true,
+  "initial_cash": 1000000000,
+  "commission_rate": 0.0001,
+  "minimum_commission": 0,
+  "sell_stamp_duty": 0.0005,
+  "slippage_bps": 0,
+  "lot_size": 100,
+  "max_daily_turnover_participation": 0.1,
+  "liquidate_at_end": true,
+  "universe": {
+    "min_listing_sessions": 60,
+    "exclude_low_liquidity_fraction": 0.2,
+    "min_complete_price_history": 5,
+    "require_known_st_status": false,
+    "membership_field": null
+  },
+  "portfolio": {
+    "selection": "trim_tails",
+    "top_n": 20,
+    "fraction": 0.1,
+    "trim_each_tail": 0.1
+  }
+}

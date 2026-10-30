@@ -1,0 +1,130 @@
+{
+  "framework": "factor_framework.py",
+  "factor": "return_5d",
+  "factor_file": null,
+  "config": {
+    "start": "2025-01-02",
+    "end": "2026-09-30",
+    "signal_anchor": "2024-12-31",
+    "exit_signal": "2026-09-29",
+    "rebalance_sessions": 5,
+    "forward_sessions": 5,
+    "groups": 5,
+    "expected_direction": 1,
+    "rolling_window_sessions": 60,
+    "factor": "return_5d",
+    "factor_file": null,
+    "benchmark_nav": "results/equal/nav.csv",
+    "infer_st_when_missing": true,
+    "initial_cash": 1000000000,
+    "commission_rate": 0.0001,
+    "minimum_commission": 0,
+    "sell_stamp_duty": 0.0005,
+    "slippage_bps": 0,
+    "lot_size": 100,
+    "max_daily_turnover_participation": 0.1,
+    "liquidate_at_end": true,
+    "universe": {
+      "min_listing_sessions": 60,
+      "exclude_low_liquidity_fraction": 0.2,
+      "min_complete_price_history": 5,
+      "require_known_st_status": false,
+      "membership_field": null
+    },
+    "portfolio": {
+      "selection": "trim_tails",
+      "top_n": 20,
+      "fraction": 0.1,
+      "trim_each_tail": 0.1
+    }
+  },
+  "status_source": "5pct_price_inference_2hits_60d",
+  "order_quantity_rules": "科创板最低 200 股且可逐股递增；北交所最低 100 股且可逐股递增；其他证券按 lot_size 整数倍",
+  "diagnostics": {
+    "mean_ic": -0.012329198257126856,
+    "mean_rank_ic": -0.02840401343161794,
+    "icir": -0.09654020912127625,
+    "rank_icir": -0.19267099571578328,
+    "ic_win_rate": 0.4880952380952381,
+    "rank_ic_win_rate": 0.4166666666666667,
+    "ic_t_stat": -0.8901198275295349,
+    "rank_ic_t_stat": -1.7764646983624595,
+    "ic_t_stat_hac_lags": 0,
+    "expected_direction": 1,
+    "rolling_window_sessions": 60,
+    "positive_rank_ic_fraction": 0.4166666666666667,
+    "signal_count": 85,
+    "complete_forward_count": 84,
+    "mean_eligible": 3864.9882352941177,
+    "mean_selected": 3092.8470588235296,
+    "layer_total_returns": {
+      "Q1": 0.0997540263291703,
+      "Q2": 0.32038858499414236,
+      "Q3": 0.3758067369337126,
+      "Q4": 0.47619054538479744,
+      "Q5": 0.1722652767524704
+    },
+    "layer_annualized_returns": {
+      "Q1": 0.05612598658880752,
+      "Q2": 0.17305428550567115,
+      "Q3": 0.2010815266931727,
+      "Q4": 0.2506541108340312,
+      "Q5": 0.09557232737547783
+    },
+    "top_bottom_total_return": 0.01164289246940342,
+    "top_bottom_annualized_return": 0.006669945794984589,
+    "group_monotonicity_mean": 0.00952380952380951,
+    "group_monotonicity_win_rate": 0.5,
+    "selected_gross_annualized_return": 0.20306267405756584,
+    "unselected_gross_annualized_return": -0.015160643206779012,
+    "selected_vs_unselected_annualized_spread": 0.20200508032523845
+  },
+  "benchmark": {
+    "benchmark_source": "results/equal/nav.csv",
+    "portfolio_common_period_annualized_return": 0.21555016841193098,
+    "benchmark_annualized_return": 0.17671279302928,
+    "excess_annualized_return": 0.038837375382650974,
+    "information_ratio": 1.64294169311119,
+    "beta": 0.9670199197281266,
+    "alpha_annualized_arithmetic": 0.03860489982061051
+  },
+  "data_last_date": "2026-09-30",
+  "data_files": [
+    {
+      "name": "amt.feather",
+      "bytes": 52398330,
+      "modified_ns": 1792134412000000000
+    },
+    {
+      "name": "close.feather",
+      "bytes": 32431858,
+      "modified_ns": 1792134402000000000
+    },
+    {
+      "name": "cumadj.feather",
+      "bytes": 5877058,
+      "modified_ns": 1792085594000000000
+    },
+    {
+      "name": "high.feather",
+      "bytes": 32377890,
+      "modified_ns": 1792134396000000000
+    },
+    {
+      "name": "low.feather",
+      "bytes": 32156250,
+      "modified_ns": 1792134398000000000
+    },
+    {
+      "name": "num_trades.feather",
+      "bytes": 37495202,
+      "modified_ns": 1792086384000000000
+    },
+    {
+      "name": "open.feather",
+      "bytes": 32297546,
+      "modified_ns": 1792134392000000000
+    }
+  ],
+  "execution": "信号日收盘计算，次日开盘撮合；IC 与分层为研究口径毛收益"
+}

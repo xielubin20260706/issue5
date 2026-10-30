@@ -1,0 +1,130 @@
+{
+  "framework": "factor_framework.py",
+  "factor": "risk_adjusted_momentum_20d",
+  "factor_file": "factor_example.py",
+  "config": {
+    "start": "2025-01-02",
+    "end": "2026-09-30",
+    "signal_anchor": "2024-12-31",
+    "exit_signal": "2026-09-29",
+    "rebalance_sessions": 5,
+    "forward_sessions": 5,
+    "groups": 5,
+    "expected_direction": 1,
+    "rolling_window_sessions": 60,
+    "factor": "return_5d",
+    "factor_file": "factor_example.py",
+    "benchmark_nav": "results/equal/nav.csv",
+    "infer_st_when_missing": true,
+    "initial_cash": 1000000000,
+    "commission_rate": 0.0001,
+    "minimum_commission": 0,
+    "sell_stamp_duty": 0.0005,
+    "slippage_bps": 0,
+    "lot_size": 100,
+    "max_daily_turnover_participation": 0.1,
+    "liquidate_at_end": true,
+    "universe": {
+      "min_listing_sessions": 60,
+      "exclude_low_liquidity_fraction": 0.2,
+      "min_complete_price_history": 5,
+      "require_known_st_status": false,
+      "membership_field": null
+    },
+    "portfolio": {
+      "selection": "trim_tails",
+      "top_n": 20,
+      "fraction": 0.1,
+      "trim_each_tail": 0.1
+    }
+  },
+  "status_source": "5pct_price_inference_2hits_60d",
+  "order_quantity_rules": "科创板最低 200 股且可逐股递增；北交所最低 100 股且可逐股递增；其他证券按 lot_size 整数倍",
+  "diagnostics": {
+    "mean_ic": -0.011718307520337548,
+    "mean_rank_ic": -0.04983865785253697,
+    "icir": -0.08081464392763876,
+    "rank_icir": -0.30793375955678387,
+    "ic_win_rate": 0.4523809523809524,
+    "rank_ic_win_rate": 0.39285714285714285,
+    "ic_t_stat": -0.7451270053119977,
+    "rank_ic_t_stat": -2.8392101844618636,
+    "ic_t_stat_hac_lags": 0,
+    "expected_direction": 1,
+    "rolling_window_sessions": 60,
+    "positive_rank_ic_fraction": 0.39285714285714285,
+    "signal_count": 85,
+    "complete_forward_count": 84,
+    "mean_eligible": 3864.9882352941177,
+    "mean_selected": 3092.8470588235296,
+    "layer_total_returns": {
+      "Q1": 0.3314907572626762,
+      "Q2": 0.296594418183052,
+      "Q3": 0.3230069580178416,
+      "Q4": 0.30103318352222885,
+      "Q5": 0.16809680528384918
+    },
+    "layer_annualized_returns": {
+      "Q1": 0.17870863370923917,
+      "Q2": 0.16086728058145905,
+      "Q3": 0.17438964376286648,
+      "Q4": 0.16314792539283252,
+      "Q5": 0.09333332662103744
+    },
+    "top_bottom_total_return": -0.15221736985710932,
+    "top_bottom_annualized_return": -0.09047563493651745,
+    "group_monotonicity_mean": 0.00714285714285715,
+    "group_monotonicity_win_rate": 0.4523809523809524,
+    "selected_gross_annualized_return": 0.1630975127698442,
+    "unselected_gross_annualized_return": 0.1304189093675343,
+    "selected_vs_unselected_annualized_spread": 0.028903143358148142
+  },
+  "benchmark": {
+    "benchmark_source": "results/equal/nav.csv",
+    "portfolio_common_period_annualized_return": 0.17859243392953417,
+    "benchmark_annualized_return": 0.17671279302928,
+    "excess_annualized_return": 0.0018796409002541647,
+    "information_ratio": 0.18583111758237983,
+    "beta": 1.0087613593559404,
+    "alpha_annualized_arithmetic": 0.00048429448883152183
+  },
+  "data_last_date": "2026-09-30",
+  "data_files": [
+    {
+      "name": "amt.feather",
+      "bytes": 52398330,
+      "modified_ns": 1792134412000000000
+    },
+    {
+      "name": "close.feather",
+      "bytes": 32431858,
+      "modified_ns": 1792134402000000000
+    },
+    {
+      "name": "cumadj.feather",
+      "bytes": 5877058,
+      "modified_ns": 1792085594000000000
+    },
+    {
+      "name": "high.feather",
+      "bytes": 32377890,
+      "modified_ns": 1792134396000000000
+    },
+    {
+      "name": "low.feather",
+      "bytes": 32156250,
+      "modified_ns": 1792134398000000000
+    },
+    {
+      "name": "num_trades.feather",
+      "bytes": 37495202,
+      "modified_ns": 1792086384000000000
+    },
+    {
+      "name": "open.feather",
+      "bytes": 32297546,
+      "modified_ns": 1792134392000000000
+    }
+  ],
+  "execution": "信号日收盘计算，次日开盘撮合；IC 与分层为研究口径毛收益"
+}

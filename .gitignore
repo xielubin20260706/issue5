@@ -1,0 +1,9 @@
+__pycache__/
+*.py[cod]
+data/*.zip
+data/*.feather
+feathers/*.feather
+feathers/security_status.csv
+feathers/limit_rules.csv
+runs/
+results/*/trades.csv.gz
